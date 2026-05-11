@@ -21,11 +21,16 @@ spec:
       interval: 5m
   dependsOn:
     - name: nodewright-customizations
+  valuesFrom:
+    - kind: ConfigMap
+      name: gpu-operator-values
   values:
     cdi:
       default: false
       enabled: true
     daemonsets:
+      nodeSelector:
+        nvidia.com/gpu.present: "true"
       tolerations:
       - operator: Exists
     dcgm:
@@ -47,10 +52,8 @@ spec:
     driver:
       enabled: true
       maxParallelUpgrades: 5
-      rdma:
-        enabled: true
+      rdma: {}
       useOpenKernelModules: true
-      version: 580.105.08
     fullnameOverride: gpu-operator
     gdrcopy:
       enabled: true

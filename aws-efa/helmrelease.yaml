@@ -31,7 +31,8 @@ spec:
       repository: 602401143452.dkr.ecr.us-west-2.amazonaws.com/eks/aws-efa-k8s-device-plugin
       tag: v0.5.3
     imagePullSecrets: []
-    nodeSelector: {}
+    nodeSelector:
+      nvidia.com/gpu.present: "true"
     resources:
       requests:
         cpu: 10m

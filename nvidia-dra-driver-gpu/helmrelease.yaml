@@ -31,6 +31,8 @@ spec:
     fullnameOverride: nvidia-dra-driver-gpu
     gpuResourcesEnabledOverride: true
     kubeletPlugin:
+      nodeSelector:
+        nvidia.com/gpu.present: "true"
       priorityClassName: ""
       tolerations:
       - operator: Exists

@@ -22,8 +22,12 @@ spec:
     - name: nodewright-operator
   values:
     nodewright-customizations:
+      acceleratedNodeSelector:
+        nvidia.com/gpu.present: "true"
       acceleratedTolerations:
       - operator: Exists
       accelerator: h100
       intent: multiNodeTraining
       service: eks
+      workloadSelector:
+        app.kubernetes.io/name: training-job

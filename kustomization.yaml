@@ -6,7 +6,9 @@ resources:
   - aws-ebs-csi-driver/helmrelease.yaml
   - aws-efa/helmrelease.yaml
   - cert-manager/helmrelease.yaml
+  - gpu-operator-post/configmap-values.yaml
   - gpu-operator-post/helmrelease.yaml
+  - gpu-operator/configmap-values.yaml
   - gpu-operator/helmrelease.yaml
   - k8s-ephemeral-storage-metrics/helmrelease.yaml
   - kai-scheduler/helmrelease.yaml

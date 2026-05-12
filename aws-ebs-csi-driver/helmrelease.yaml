@@ -12,55 +12,55 @@ spec:
     createNamespace: true
   chart:
     spec:
-      chart: aws-ebs-csi-driver
-      version: 2.59.0
+      chart: ./aws-ebs-csi-driver
       sourceRef:
-        kind: HelmRepository
-        name: kubernetes-sigs-github-io-aws-ebs-csi-driver
+        kind: GitRepository
+        name: github-com-haarchri-aicr-flux-bundle
         namespace: flux-system
       interval: 5m
   values:
-    controller:
-      replicaCount: 2
-      resources:
-        limits:
-          memory: 256Mi
-        requests:
-          cpu: 10m
-          memory: 40Mi
-      serviceAccount:
-        automountServiceAccountToken: true
-        create: true
-        name: ebs-csi-controller-sa
-      tolerations:
-      - operator: Exists
-    defaultStorageClass:
-      enabled: false
-    fullnameOverride: aws-ebs-csi-driver
-    helmTester:
-      enabled: false
-    image:
-      pullPolicy: IfNotPresent
-      repository: public.ecr.aws/ebs-csi-driver/aws-ebs-csi-driver
-    node:
-      enableLinux: true
-      enableWindows: false
-      resources:
-        limits:
-          memory: 256Mi
-        requests:
-          cpu: 10m
-          memory: 40Mi
-      serviceAccount:
-        automountServiceAccountToken: true
-        create: true
-        name: ebs-csi-node-sa
-      tolerateAllTaints: true
-      tolerations:
-      - operator: Exists
-      updateStrategy:
-        rollingUpdate:
-          maxUnavailable: 10%
-        type: RollingUpdate
-    storageClasses: []
-    volumeSnapshotClasses: []
+    aws-ebs-csi-driver:
+      controller:
+        replicaCount: 2
+        resources:
+          limits:
+            memory: 256Mi
+          requests:
+            cpu: 10m
+            memory: 40Mi
+        serviceAccount:
+          automountServiceAccountToken: true
+          create: true
+          name: ebs-csi-controller-sa
+        tolerations:
+        - operator: Exists
+      defaultStorageClass:
+        enabled: false
+      fullnameOverride: aws-ebs-csi-driver
+      helmTester:
+        enabled: false
+      image:
+        pullPolicy: IfNotPresent
+        repository: public.ecr.aws/ebs-csi-driver/aws-ebs-csi-driver
+      node:
+        enableLinux: true
+        enableWindows: false
+        resources:
+          limits:
+            memory: 256Mi
+          requests:
+            cpu: 10m
+            memory: 40Mi
+        serviceAccount:
+          automountServiceAccountToken: true
+          create: true
+          name: ebs-csi-node-sa
+        tolerateAllTaints: true
+        tolerations:
+        - operator: Exists
+        updateStrategy:
+          rollingUpdate:
+            maxUnavailable: 10%
+          type: RollingUpdate
+      storageClasses: []
+      volumeSnapshotClasses: []

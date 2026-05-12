@@ -12,52 +12,52 @@ spec:
     createNamespace: true
   chart:
     spec:
-      chart: cert-manager
-      version: 1.20.2
+      chart: ./cert-manager
       sourceRef:
-        kind: HelmRepository
-        name: charts-jetstack-io
+        kind: GitRepository
+        name: github-com-haarchri-aicr-flux-bundle
         namespace: flux-system
       interval: 5m
   dependsOn:
     - name: aws-efa
   values:
-    cainjector:
+    cert-manager:
+      cainjector:
+        resources:
+          limits:
+            cpu: 50m
+            memory: 320Mi
+          requests:
+            cpu: 50m
+            memory: 320Mi
+        tolerations:
+        - operator: Exists
+      crds:
+        enabled: true
+      fullnameOverride: cert-manager
+      prometheus:
+        servicemonitor:
+          enabled: false
       resources:
         limits:
           cpu: 50m
-          memory: 320Mi
+          memory: 90Mi
         requests:
           cpu: 50m
-          memory: 320Mi
+          memory: 90Mi
+      startupapicheck:
+        enabled: true
+        tolerations:
+        - operator: Exists
       tolerations:
       - operator: Exists
-    crds:
-      enabled: true
-    fullnameOverride: cert-manager
-    prometheus:
-      servicemonitor:
-        enabled: false
-    resources:
-      limits:
-        cpu: 50m
-        memory: 90Mi
-      requests:
-        cpu: 50m
-        memory: 90Mi
-    startupapicheck:
-      enabled: true
-      tolerations:
-      - operator: Exists
-    tolerations:
-    - operator: Exists
-    webhook:
-      resources:
-        limits:
-          cpu: 50m
-          memory: 40Mi
-        requests:
-          cpu: 50m
-          memory: 40Mi
-      tolerations:
-      - operator: Exists
+      webhook:
+        resources:
+          limits:
+            cpu: 50m
+            memory: 40Mi
+          requests:
+            cpu: 50m
+            memory: 40Mi
+        tolerations:
+        - operator: Exists

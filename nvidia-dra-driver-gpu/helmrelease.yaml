@@ -12,29 +12,29 @@ spec:
     createNamespace: true
   chart:
     spec:
-      chart: nvidia-dra-driver-gpu
-      version: 25.12.0
+      chart: ./nvidia-dra-driver-gpu
       sourceRef:
-        kind: HelmRepository
-        name: helm-ngc-nvidia-com-nvidia
+        kind: GitRepository
+        name: github-com-haarchri-aicr-flux-bundle
         namespace: flux-system
       interval: 5m
   dependsOn:
     - name: kai-scheduler
   values:
-    controller:
-      affinity:
-        nodeAffinity: null
-      priorityClassName: ""
-      tolerations:
-      - operator: Exists
-    fullnameOverride: nvidia-dra-driver-gpu
-    gpuResourcesEnabledOverride: true
-    kubeletPlugin:
-      priorityClassName: ""
-      tolerations:
-      - operator: Exists
-    nvidiaDriverRoot: /run/nvidia/driver
-    resources:
-      gpus:
-        enabled: true
+    nvidia-dra-driver-gpu:
+      controller:
+        affinity:
+          nodeAffinity: null
+        priorityClassName: ""
+        tolerations:
+        - operator: Exists
+      fullnameOverride: nvidia-dra-driver-gpu
+      gpuResourcesEnabledOverride: true
+      kubeletPlugin:
+        priorityClassName: ""
+        tolerations:
+        - operator: Exists
+      nvidiaDriverRoot: /run/nvidia/driver
+      resources:
+        gpus:
+          enabled: true

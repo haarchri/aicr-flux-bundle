@@ -12,31 +12,31 @@ spec:
     createNamespace: true
   chart:
     spec:
-      chart: nvsentinel
-      version: v1.3.0
+      chart: ./nvsentinel
       sourceRef:
-        kind: HelmRepository
-        name: ghcr-io-nvidia
+        kind: GitRepository
+        name: github-com-haarchri-aicr-flux-bundle
         namespace: flux-system
       interval: 5m
   dependsOn:
     - name: nvidia-dra-driver-gpu
   values:
-    fullnameOverride: nvsentinel
-    global:
-      systemNodeTolerations:
-      - operator: Exists
-      tolerations:
-      - operator: Exists
-    networkPolicy:
-      enabled: false
-    platformConnector:
-      maxUnavailable: 1
-      resources:
-        limits:
-          cpu: 200m
-          memory: 512Mi
-        requests:
-          cpu: 200m
-          memory: 512Mi
-      updateStrategy: RollingUpdate
+    nvsentinel:
+      fullnameOverride: nvsentinel
+      global:
+        systemNodeTolerations:
+        - operator: Exists
+        tolerations:
+        - operator: Exists
+      networkPolicy:
+        enabled: false
+      platformConnector:
+        maxUnavailable: 1
+        resources:
+          limits:
+            cpu: 200m
+            memory: 512Mi
+          requests:
+            cpu: 200m
+            memory: 512Mi
+        updateStrategy: RollingUpdate

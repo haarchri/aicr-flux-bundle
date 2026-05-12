@@ -12,42 +12,42 @@ spec:
     createNamespace: true
   chart:
     spec:
-      chart: aws-efa-k8s-device-plugin
-      version: 0.5.3
+      chart: ./aws-efa
       sourceRef:
-        kind: HelmRepository
-        name: aws-github-io-eks-charts
+        kind: GitRepository
+        name: github-com-haarchri-aicr-flux-bundle
         namespace: flux-system
       interval: 5m
   dependsOn:
     - name: aws-ebs-csi-driver
   values:
-    additionalPodAnnotations: {}
-    additionalPodLabels: {}
-    affinity:
-      nodeAffinity: {}
-    fullnameOverride: aws-efa-k8s-device-plugin
-    image:
-      repository: 602401143452.dkr.ecr.us-west-2.amazonaws.com/eks/aws-efa-k8s-device-plugin
-      tag: v0.5.3
-    imagePullSecrets: []
-    nodeSelector: {}
-    resources:
-      requests:
-        cpu: 10m
-        memory: 20Mi
-    securityContext:
-      allowPrivilegeEscalation: false
-      capabilities:
-        drop:
-        - ALL
-      runAsNonRoot: false
-    supportedInstanceLabels:
-      keys:
-      - nodeGroup
-      - nvidia.com/gpu.present
-      values:
-      - gpu
-      - "true"
-    tolerations:
-    - operator: Exists
+    aws-efa-k8s-device-plugin:
+      additionalPodAnnotations: {}
+      additionalPodLabels: {}
+      affinity:
+        nodeAffinity: {}
+      fullnameOverride: aws-efa-k8s-device-plugin
+      image:
+        repository: 602401143452.dkr.ecr.us-west-2.amazonaws.com/eks/aws-efa-k8s-device-plugin
+        tag: v0.5.3
+      imagePullSecrets: []
+      nodeSelector: {}
+      resources:
+        requests:
+          cpu: 10m
+          memory: 20Mi
+      securityContext:
+        allowPrivilegeEscalation: false
+        capabilities:
+          drop:
+          - ALL
+        runAsNonRoot: false
+      supportedInstanceLabels:
+        keys:
+        - nodeGroup
+        - nvidia.com/gpu.present
+        values:
+        - gpu
+        - "true"
+      tolerations:
+      - operator: Exists

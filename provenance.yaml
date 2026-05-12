@@ -1,0 +1,87 @@
+apiVersion: aicr.nvidia.com/v1alpha1
+kind: BundleProvenance
+vendoredCharts:
+- chart: aws-ebs-csi-driver
+  name: aws-ebs-csi-driver
+  pullerVersion: helm-cli v3.12.1+gf32a527
+  repository: https://kubernetes-sigs.github.io/aws-ebs-csi-driver
+  sha256: adb1961abcced2b66c49d4f64885d63b2fd824310c8d4f99c52c7d2c0193b118
+  tarballName: aws-ebs-csi-driver-2.59.0.tgz
+  version: 2.59.0
+- chart: aws-efa-k8s-device-plugin
+  name: aws-efa
+  pullerVersion: helm-cli v3.12.1+gf32a527
+  repository: https://aws.github.io/eks-charts
+  sha256: a04d0aebba0a09e4d1f9f6869fc0d3677225f13d0cfd0b17085e52f41185375a
+  tarballName: aws-efa-k8s-device-plugin-v0.5.3.tgz
+  version: v0.5.3
+- chart: cert-manager
+  name: cert-manager
+  pullerVersion: helm-cli v3.12.1+gf32a527
+  repository: https://charts.jetstack.io
+  sha256: d2a50bd44a09d838c2576a8f3dfca1524597c7393cf8d82ab3ec8a465b9eeb79
+  tarballName: cert-manager-v1.20.2.tgz
+  version: v1.20.2
+- chart: gpu-operator
+  name: gpu-operator
+  pullerVersion: helm-cli v3.12.1+gf32a527
+  repository: https://helm.ngc.nvidia.com/nvidia
+  sha256: 9532cc4dd59248e0eb2a0cd4baa6a7e8ed4258b5d7588ae9c13f5c839482efe5
+  tarballName: gpu-operator-v25.10.1.tgz
+  version: v25.10.1
+- chart: k8s-ephemeral-storage-metrics
+  name: k8s-ephemeral-storage-metrics
+  pullerVersion: helm-cli v3.12.1+gf32a527
+  repository: https://jmcgrath207.github.io/k8s-ephemeral-storage-metrics/chart
+  sha256: 50efd37764505551f24752c3806e63458be775fc8c10fb1c68fe1f62b5ed4cf1
+  tarballName: k8s-ephemeral-storage-metrics-1.19.2.tgz
+  version: 1.19.2
+- chart: kai-scheduler
+  name: kai-scheduler
+  pullerVersion: helm-cli v3.12.1+gf32a527
+  repository: oci://ghcr.io/kai-scheduler/kai-scheduler
+  sha256: 7ae052b56e752975eeac0ebb5de381f5eadf51207872c95f98eefd2901c4be4e
+  tarballName: kai-scheduler-v0.14.1.tgz
+  version: v0.14.1
+- chart: kube-prometheus-stack
+  name: kube-prometheus-stack
+  pullerVersion: helm-cli v3.12.1+gf32a527
+  repository: https://prometheus-community.github.io/helm-charts
+  sha256: 87bac65f32a358eeb52bda426cff20dd2fe3f1b61babe0b35866392bdd2721dd
+  tarballName: kube-prometheus-stack-84.4.0.tgz
+  version: 84.4.0
+- chart: node-feature-discovery
+  name: nfd
+  pullerVersion: helm-cli v3.12.1+gf32a527
+  repository: https://kubernetes-sigs.github.io/node-feature-discovery/charts
+  sha256: 0cb59bd70444d3d426ffd53fd242ae433118d7ebb9d2ad32d3db99be8a523e16
+  tarballName: node-feature-discovery-chart-0.18.3.tgz
+  version: 0.18.3
+- chart: skyhook-operator
+  name: nodewright-operator
+  pullerVersion: helm-cli v3.12.1+gf32a527
+  repository: https://helm.ngc.nvidia.com/nvidia/skyhook
+  sha256: 5c7b66d38b2ea7efb5b5c3e7ca00ca6f26d43769b14f2ebb1c670cd972cc2adf
+  tarballName: skyhook-operator-v0.15.1.tgz
+  version: v0.15.1
+- chart: nvidia-dra-driver-gpu
+  name: nvidia-dra-driver-gpu
+  pullerVersion: helm-cli v3.12.1+gf32a527
+  repository: https://helm.ngc.nvidia.com/nvidia
+  sha256: a49808cf03d57b7a9e83d1628d5913c42b2c635b167f771fa75950a61f84174f
+  tarballName: nvidia-dra-driver-gpu-25.12.0.tgz
+  version: 25.12.0
+- chart: nvsentinel
+  name: nvsentinel
+  pullerVersion: helm-cli v3.12.1+gf32a527
+  repository: oci://ghcr.io/nvidia
+  sha256: 3448f74025164be0ac4e4e53277843b6e34e3fc3256ebcd484abf7f33d39ca90
+  tarballName: nvsentinel-v1.3.0.tgz
+  version: v1.3.0
+- chart: prometheus-adapter
+  name: prometheus-adapter
+  pullerVersion: helm-cli v3.12.1+gf32a527
+  repository: https://prometheus-community.github.io/helm-charts
+  sha256: aa6752b6207ed788522714c3ef7f67f27d423eb4d9512fecb52dc641b6434f31
+  tarballName: prometheus-adapter-5.3.0.tgz
+  version: 5.3.0

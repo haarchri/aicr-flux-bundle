@@ -12,32 +12,32 @@ spec:
     createNamespace: true
   chart:
     spec:
-      chart: node-feature-discovery
-      version: 0.18.3
+      chart: ./nfd
       sourceRef:
-        kind: HelmRepository
-        name: kubernetes-sigs-github-io-node-feature-discovery-charts
+        kind: GitRepository
+        name: github-com-haarchri-aicr-flux-bundle
         namespace: flux-system
       interval: 5m
   dependsOn:
     - name: k8s-ephemeral-storage-metrics
   values:
-    enableNodeFeatureApi: true
-    gc:
-      enable: true
-      tolerations:
-      - operator: Exists
-    master:
-      enable: true
-      tolerations:
-      - operator: Exists
-    topologyUpdater:
-      createCRDs: true
-      enable: true
-      kubeletStateDir: ""
-      tolerations:
-      - operator: Exists
-    worker:
-      enable: true
-      tolerations:
-      - operator: Exists
+    node-feature-discovery:
+      enableNodeFeatureApi: true
+      gc:
+        enable: true
+        tolerations:
+        - operator: Exists
+      master:
+        enable: true
+        tolerations:
+        - operator: Exists
+      topologyUpdater:
+        createCRDs: true
+        enable: true
+        kubeletStateDir: ""
+        tolerations:
+        - operator: Exists
+      worker:
+        enable: true
+        tolerations:
+        - operator: Exists

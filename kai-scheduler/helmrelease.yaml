@@ -12,20 +12,20 @@ spec:
     createNamespace: true
   chart:
     spec:
-      chart: kai-scheduler
-      version: v0.14.1
+      chart: ./kai-scheduler
       sourceRef:
-        kind: HelmRepository
-        name: ghcr-io-kai-scheduler-kai-scheduler
+        kind: GitRepository
+        name: github-com-haarchri-aicr-flux-bundle
         namespace: flux-system
       interval: 5m
   dependsOn:
     - name: gpu-operator
   values:
-    admission:
-      gpuPodRuntimeClassName: ""
-    global:
-      tolerations:
-      - operator: Exists
-    postCleanup:
-      enabled: false
+    kai-scheduler:
+      admission:
+        gpuPodRuntimeClassName: ""
+      global:
+        tolerations:
+        - operator: Exists
+      postCleanup:
+        enabled: false
